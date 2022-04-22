@@ -1,8 +1,8 @@
 import { PHOTO_GET } from '../api';
 
 const FETCH_PHOTO_STARTED = 'photo/fetchStarted';
-const FETCH_PHOTO_SUCCESS = 'photo/fetchStarted';
-const FETCH_PHOTO_ERROR = 'photo/fetchStarted';
+const FETCH_PHOTO_SUCCESS = 'photo/fetchSuccess';
+const FETCH_PHOTO_ERROR = 'photo/fetchError';
 
 const initialState = {
   loading: false,
@@ -50,6 +50,5 @@ export const fetchPhoto = (id) => async (dispatch) => {
     dispatch(fetchPhotoSuccess(data));
   } catch (error) {
     dispatch(fetchPhotoError(error.message));
-  } finally {
   }
 };
