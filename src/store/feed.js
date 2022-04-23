@@ -1,5 +1,5 @@
 import createAsyncSlice from './helper/createAsyncSlice';
-import { PHOTO_GET } from '../api';
+import { PHOTOS_GET } from '../api';
 
 const slice = createAsyncSlice({
   name: 'feed',
@@ -7,7 +7,7 @@ const slice = createAsyncSlice({
   reducers: {
     addPhotos(state, action) {
       state.list.push(...action.payload);
-      if (action.payload) state.infinite = false;
+      if (action.payload.length === 0) state.infinite = false;
     },
     addPage(state) {
       state.pages += 1;
@@ -21,7 +21,7 @@ const slice = createAsyncSlice({
       state.error = null;
     },
   },
-  fetchConfig: ({ page, total, user }) => PHOTO_GET({ page, total, user }),
+  fetchConfig: ({ page, total, user }) => PHOTOS_GET({ page, total, user }),
 });
 
 export const fetchFeed = slice.asyncAction;
