@@ -1,3 +1,4 @@
+// importa o createSlice
 import { createSlice } from '@reduxjs/toolkit';
 
 /**
