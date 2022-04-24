@@ -50,7 +50,7 @@ export const USER_POST = (body) => {
   };
 };
 
-export const PHOTO_POST = (formData, token) => {
+export const PHOTO_POST = ({ formData, token }) => {
   return {
     url: `${API_URL}/api/photo`,
     options: {
